@@ -23,6 +23,7 @@ public class FaceValue : MonoBehaviour
     public TextMeshProUGUI valorCaras;
     public static int _valor;
     public GameObject gameOver;
+    private int facesLeft = 2;
 
     private void Start()
     {
@@ -46,6 +47,11 @@ public class FaceValue : MonoBehaviour
         resultados = caras[vectorCara];
         _valor = Convert.ToInt32(resultados);
         valorCaras.text = _valor.ToString();
+
+        if(facesLeft <= 0)
+        {
+            gameOver.SetActive(true);
+        }
     }
 
     void OnDrawGizmos()
@@ -55,6 +61,14 @@ public class FaceValue : MonoBehaviour
         {
             var worldVector = this.transform.localToWorldMatrix.MultiplyVector(vectores);
             Gizmos.DrawLine(this.transform.position, this.transform.position + worldVector);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "face")
+        {
+            facesLeft--;
         }
     }
 }

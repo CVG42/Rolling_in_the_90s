@@ -10,7 +10,7 @@ public class DiceEnterTrigger : MonoBehaviour
     {
         if (other.tag == "Dice")
         {
-            ScoreManager._score -= value;
+            ScoreManager._score -= (value * FaceValue._valor);
             Destroy(gameObject);
         }
     }
