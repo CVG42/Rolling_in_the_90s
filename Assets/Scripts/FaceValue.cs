@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 public enum Caras
 {
-    Uno,
-    Dos,
-    Tres,
-    Cuatro,
-    Cinco,
-    Seis
+    Uno = 1,
+    Dos = 2,
+    Tres = 3,
+    Cuatro = 4,
+    Cinco = 5,
+    Seis = 6
 }
 
 public class FaceValue : MonoBehaviour
@@ -17,6 +19,8 @@ public class FaceValue : MonoBehaviour
     public int vectorCara;
     public Vector3[] vectorUnitario; //Los vectores que se utilizan son los vectores unitarios correspondientes a cada cara
     public Caras[] caras;
+    public static int _numVal;
+    public TextMeshProUGUI valorCaras;
 
     void Update()
     {
@@ -32,8 +36,9 @@ public class FaceValue : MonoBehaviour
                 vectorCara = i;
             }
         }
-
         resultados = caras[vectorCara];
+        int valor = Convert.ToInt32(resultados);
+        valorCaras.text = valor.ToString();
     }
 
     void OnDrawGizmos()
