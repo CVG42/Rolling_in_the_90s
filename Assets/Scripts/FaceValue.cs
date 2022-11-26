@@ -21,6 +21,13 @@ public class FaceValue : MonoBehaviour
     public Caras[] caras;
     public static int _numVal;
     public TextMeshProUGUI valorCaras;
+    public static int _valor;
+    public GameObject gameOver;
+
+    private void Start()
+    {
+
+    }
 
     void Update()
     {
@@ -37,8 +44,8 @@ public class FaceValue : MonoBehaviour
             }
         }
         resultados = caras[vectorCara];
-        int valor = Convert.ToInt32(resultados);
-        valorCaras.text = valor.ToString();
+        _valor = Convert.ToInt32(resultados);
+        valorCaras.text = _valor.ToString();
     }
 
     void OnDrawGizmos()
