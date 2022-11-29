@@ -26,11 +26,6 @@ public class FaceValue : MonoBehaviour
     public GameObject win;
     private int facesLeft = 2;
 
-    private void Start()
-    {
-
-    }
-
     void Update()
     {
         float maxProd = -1; //con el -1 se indica que el producto punto y el vector resultante se encuentra en la direccion opuesta
