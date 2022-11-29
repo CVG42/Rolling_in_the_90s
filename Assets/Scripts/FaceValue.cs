@@ -23,6 +23,7 @@ public class FaceValue : MonoBehaviour
     public TextMeshProUGUI valorCaras;
     public static int _valor;
     public GameObject gameOver;
+    public GameObject win;
     private int facesLeft = 2;
 
     private void Start()
@@ -48,9 +49,14 @@ public class FaceValue : MonoBehaviour
         _valor = Convert.ToInt32(resultados);
         valorCaras.text = _valor.ToString();
 
-        if(facesLeft <= 0)
+        if(facesLeft <= 0 && ScoreManager._score != 0)
         {
             gameOver.SetActive(true);
+        }
+
+        if(ScoreManager._score == 0)
+        {
+            win.SetActive(true);
         }
     }
 

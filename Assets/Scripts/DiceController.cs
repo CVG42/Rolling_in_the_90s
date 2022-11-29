@@ -11,14 +11,14 @@ public class DiceController : MonoBehaviour
     {
         if (_isMoving) return;
 
-        if (Input.GetKey(KeyCode.A)) Assemble(Vector3.left);
-        else if (Input.GetKey(KeyCode.D)) Assemble(Vector3.right);
-        else if (Input.GetKey(KeyCode.W)) Assemble(Vector3.forward);
-        else if (Input.GetKey(KeyCode.S)) Assemble(Vector3.back);
+        if (Input.GetKey(KeyCode.A)) Direcciones(Vector3.left);
+        else if (Input.GetKey(KeyCode.D)) Direcciones(Vector3.right);
+        else if (Input.GetKey(KeyCode.W)) Direcciones(Vector3.forward);
+        else if (Input.GetKey(KeyCode.S)) Direcciones(Vector3.back);
 
-        void Assemble(Vector3 dir)
+        void Direcciones(Vector3 dir)
         {
-            var anchor = transform.position + (Vector3.down + dir) * 0.5f;
+            var anchor = transform.position + (Vector3.down + dir) * 0.5f; //suma de vectores
             var axis = Vector3.Cross(Vector3.up, dir); // producto cruz
             StartCoroutine(Roll(anchor, axis));
         }
